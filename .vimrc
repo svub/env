@@ -2,6 +2,8 @@ set nocompatible " be iMproved
 filetype off " required!
 
 " ----------------- VUNDLE SETTINGS -----------------------"
+" Beautiful place to find plugins: http://vimawesome.com
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle - required!
@@ -18,11 +20,12 @@ Plugin 'garbas/vim-snipmate.git'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'bling/vim-airline'
-"Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-repeat'
+Plugin 'Valloric/YouCompleteMe'
 
 " colors
 Plugin 'flazz/vim-colorschemes'
@@ -32,6 +35,8 @@ Plugin 'tomasr/molokai'
 " lang
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'pangloss/vim-javascript'
+Plugin 'groenewege/vim-less'
+Plugin 'wavded/vim-stylus'
 Plugin 'othree/html5.vim'
 
 call vundle#end()
