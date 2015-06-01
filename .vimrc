@@ -24,8 +24,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'tpope/vim-surround'
 Plugin 'kien/ctrlp.vim'
+let g:ctrlp_working_path_mode = '' " current dir and below only
 Plugin 'tpope/vim-repeat'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe' -- incompartible with VIM of debian 7
 
 " colors
 Plugin 'flazz/vim-colorschemes'
@@ -38,6 +39,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'groenewege/vim-less'
 Plugin 'wavded/vim-stylus'
 Plugin 'othree/html5.vim'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()
 filetype plugin indent on " required!
@@ -93,6 +95,10 @@ nmap <silent> <leader>ii :set invrelativenumber<CR>
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
 
+" Map Wa to wa as it's such a common mistake.
+command! Wa :wa
+
+
 " Fast saving & closing current buffer w/t closing windows displaying the buffer
 nmap <leader>wq :w!<cr>:Bclose<cr>
 
@@ -103,13 +109,13 @@ set nolazyredraw
 set showbreak=↪
 
 " backups
-set undodir=~/tmp/vim/undo//   " undo files
+set undodir=~/tmp/vim/undo/   " undo files
 set undofile
 set undolevels=3000
 set undoreload=10000
 
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
+set backupdir=~/tmp/vim/backup/ " backups
+set directory=~/tmp/vim/swap/   " swap files
 set backup
 set noswapfile
 
@@ -458,6 +464,9 @@ endfunction
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
+
+"Use Jade.vim also for tpl.jade files
+autocmd BufNewFile,BufRead *.tpl.jade set filetype=jade
 
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
